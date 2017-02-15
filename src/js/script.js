@@ -8,4 +8,12 @@
 
  console.log( "Hello, world!" );
 
- console.log(document.getElementByTagName('flip'));
+
+let fFlipButton = document.getElementsByClassName('flip')[0];
+
+const fFlip = function () {
+    document.getElementsByClassName( 'flip-container' )[0].classList.toggle( 'hover' );
+};
+
+
+fFlipButton.addEventListener( "click", fFlip, "false" );
