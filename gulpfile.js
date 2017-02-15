@@ -30,7 +30,7 @@ gulp.task( "css", function() {
         .pipe( autoprefixer() )
         .pipe( csso() )
         .pipe( gulp.dest( "assets/css" ) );
-})
+});
 
 // --- Tasks for pug
 
@@ -38,7 +38,7 @@ gulp.task( "html", function() {
     gulp.src( "src/pug/**/*.pug" )
         .pipe( pug( {} ) )
         .pipe( gulp.dest( "." ) )
-})
+});
 
 // --- Tasks for js
 
@@ -46,7 +46,7 @@ gulp.task( "js", function(){
     gulp.src( "src/js/**/*.js" )
         .pipe( babel() )
         .pipe( gulp.dest( "assets/js" ) )
-} )
+} );
 
 // --- Watch tasks
 
@@ -55,7 +55,7 @@ gulp.task( "watch", function(){
     gulp.watch( "src/sass/**/*.scss", [ "css" ] );
     gulp.watch( "src/pug/**/*.pug", [ "html" ] );
     gulp.watch( "src/js/**/*.js", [ "js" ] );
-} )
+} );
 
 // --- Aliases
 
