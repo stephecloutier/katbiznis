@@ -8,10 +8,11 @@ html( lang="fr" )
 
     body
         h1 Ma carte de visite
-        div( class="card-container" )
-            section( id="card-face" )
-                h2 Stéphanie Cloutier
-            section( id="card-back" )
+        div( class="flip-container" ontouchstart="this.classList.toggle('hover');" )
+            div( class="card-container" )
+                section( class="card-face" )
+                    h2 Stéphanie Cloutier
+                section( class="card-back" )
         nav
             a( href="#" class="vcard" ) télécharger la vcard
             a( href="#" class="flip" ) retourner

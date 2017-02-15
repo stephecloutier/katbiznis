@@ -52,29 +52,66 @@ a.flip::before {
     height: 1em;
 }
 
- div.card-container {
-     perspective: 1000px;
 
-     section{
-         width: 425px;
-         height: 275px;
-         &[id="card-face"]{
-             background-color: #000000;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-         }
-         &[id="card-back"]{
-             background: transparent url( "../images/main-bcg.png" ) no-repeat center;
-             display: none;
-         }
-     }
+ .card-face{
+     background-color: #000000;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .card-back{
+     background: transparent url( "../images/main-bcg.png" ) no-repeat center;
  }
 
- section[id="card-face"]{
+
+ section.card-face{
      h2{
          color: white;
          font-family: Helvetica, Arial, sans serif;
          font-weight: 400;
      }
  }
+
+ // --- Flippin' --- //
+
+.flip-container {
+    perspective: 1000px;
+}
+
+.flip-container:hover .card-container, .flip-container.hover .card-container {
+     transform: translateX(-100%) rotateY(-180deg);
+ }
+
+ .flip-container, .card-face, .card-back{
+     width: 425px;
+     height: 275px;
+ }
+
+// - Flip speed - ///
+
+ .card-container {
+     transition: 0.6s;
+     transform-style: preserve-3d;
+
+     position: relative;
+ }
+
+ // - hiddin' the back - //
+.card-face, .card-back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+// - card-face above the back - //
+.card-face {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+// - card-back, initially behind & hidden - //
+.card-back {
+    transform: translateX(-100%) rotateY(180deg);
+}
