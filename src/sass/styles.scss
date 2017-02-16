@@ -5,6 +5,21 @@
  * coded by stephecloutier@gmail.com
  * started at 09/02/2017
  */
+$red: #bb252f;
+
+ @font-face {
+    font-family: SourceSansPro;
+    src: url( "../fonts/Source Sans Pro/SourceSansPro-Light.otf" );
+    font-weight: 300;
+    font-style: normal;
+ }
+
+ @font-face {
+    font-family: SourceSansPro;
+    src: url( "../assests/fonts/Source Sans Pro/SourceSansPro-Semibold.otf" );
+    font-weight: 500;
+    font-style: normal;
+ }
 
  html {
      background: transparent url( '../images/card-bcg.png' );
@@ -54,10 +69,15 @@ a.flip::before {
 
 
  .card-face{
-     background-color: #000000;
+     background: $red url( "../images/colibri.svg" ) no-repeat center;
+     background-size: 30%;
+     background-color: $red;
      display: flex;
      align-items: center;
      justify-content: center;
+     h2 {
+         font-size: 0;
+     }
  }
  .card-back{
      background: transparent url( "../images/main-bcg.png" ) no-repeat center;
