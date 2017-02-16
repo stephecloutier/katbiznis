@@ -5,18 +5,23 @@
  * coded by stephecloutier@gmail.com
  * started at 09/02/2017
  */
+* {
+    box-sizing: border-box;
+}
+
+
 $red: #bb252f;
 
  @font-face {
-    font-family: SourceSansPro;
-    src: url( "../fonts/Source Sans Pro/SourceSansPro-Light.otf" );
-    font-weight: 300;
+    font-family: "SourceSansPro";
+    src: url( "../fonts/Source Sans Pro/SourceSansPro-ExtraLight.otf" );
+    font-weight: 100;
     font-style: normal;
  }
 
  @font-face {
-    font-family: SourceSansPro;
-    src: url( "../assests/fonts/Source Sans Pro/SourceSansPro-Semibold.otf" );
+    font-family: "SourceSansPro";
+    src: url( "../fonts/Source Sans Pro/SourceSansPro-Regular.otf" );
     font-weight: 500;
     font-style: normal;
  }
@@ -80,15 +85,37 @@ a.flip::before {
      }
  }
  .card-back{
-     background: transparent url( "../images/main-bcg.png" ) no-repeat center;
- }
+    font-size: 16px;
+    padding-top: 5em;
+    padding-left: 38%;
 
+    background-color: #FFFFFF;
+    font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+    font-weight: 100;
 
- section.card-face{
-     h2{
-         color: white;
-         font-family: Helvetica, Arial, sans serif;
-         font-weight: 400;
+    color: $red;
+
+    line-height: 1.375;
+    letter-spacing: 0.5px;
+
+    h2 {
+        padding: 0 0.25em;
+        display: inline-block;
+        font-size: 1em;
+        margin-bottom: 0;
+        font-weight: 100;
+        background-color: $red;
+        color: #FFFFFF;
+        letter-spacing: 1px;
+    }
+
+     &>span, &>a {
+         display: block;
+         text-decoration: none;
+         color: inherit;
+     }
+     .titre, .myName {
+         font-weight: 500;
      }
  }
 
