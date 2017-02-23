@@ -136,29 +136,30 @@ $red: #bb252f;
 
     nav {
         margin-top: 1em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         width: 425px;
+        display: inline-flex;
+        justify-content: flex-end;
+        svg {
+            width: 0.7em;
+            height: 0.7em;
+            margin-right: 0.2em;
+            transition: 0.2s ease-in-out;
+        }
         a {
             text-decoration: none;
             color: black;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: 0.2s ease-in-out;
         }
         a:hover{
               color: gray;
+              svg{
+                  fill: gray;
+                  transform: rotate(180deg);
+              }
         }
-    }
-
-    a.flip::before {
-        content: "";
-        display: inline-block;
-        background-image: url( "../images/flip-icon.svg" );
-        background-repeat: no-repeat;
-        background-size: 0.65em;
-        background-position: bottom;
-        width: 1em;
-        height: 1em;
     }
 
     .card-container section {
