@@ -5,10 +5,15 @@
  * coded by stephecloutier@gmail.com
  * started at 09/02/2017
  */
-* {
+html {
     box-sizing: border-box;
 }
 
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
 $red: #bb252f;
 
@@ -27,138 +32,185 @@ $red: #bb252f;
  }
 
  html {
-     background: transparent url( '../images/card-bcg.png' );
+    background: transparent url( '../images/card-bcg.png' );
+    height: 100%;
+    font-family: helvetica, arial, sans-serif;
+    color: black;
  }
 
-  h1 {
-      font-size: 0;
-      line-height: 0;
-  }
+ nav {
+     display: none;
+ }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
+ h1 {
+     font-size: 0;
+     line-height: 0;
+ }
 
-nav {
-    margin-top: 1em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 425px;
-    a {
-        text-decoration: none;
-        color: black;
-        font-family: helvetica, arial, sans-serif;
-        font-weight: 600;
-        &:hover{
-            color: gray;
+ body {
+     min-height: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .flip-container {
+     width: 90%;
+     max-width: 30rem;
+ }
+
+ .card-container section{
+     background-color: white;
+     min-height: 15rem;
+     margin-bottom: 2rem;
+     padding: 2rem;
+     box-shadow: 0 0 .5rem rgba(black, .5);
+
+     &.card-face {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         background: $red url( "../images/colibri.svg" ) no-repeat center;
+         background-size: 30%;
+         h2 {
+             font-size: 0;
+         }
+     }
+
+     &.card-back {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+         background-color: #FFFFFF;
+         font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+         font-weight: 100;
+
+         color: $red;
+
+         line-height: 1.375;
+         letter-spacing: 0.5px;
+
+         h2 {
+             padding: 0 0.25em;
+             display: inline-block;
+             font-size: 1em;
+             margin-bottom: 0;
+             font-weight: 100;
+             background-color: $red;
+             color: #FFFFFF;
+             letter-spacing: 1px;
+         }
+
+          &>span, &>a {
+              display: block;
+              text-decoration: none;
+              color: inherit;
+          }
+          .titre, .myName {
+              font-weight: 500;
+          }
+     }
+ }
+
+ footer {
+     font-size: 0.75em;
+     margin-top: 2rem;
+     a {
+         color: black;
+         text-decoration: none;
+     }
+ }
+
+@media screen and (min-width: 640px){
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    nav {
+        margin-top: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 425px;
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+        a:hover{
+              color: gray;
         }
     }
 
-}
-
-a.flip::before {
-    content: "";
-    display: inline-block;
-    background-image: url( "../images/flip-icon.svg" );
-    background-repeat: no-repeat;
-    background-size: 0.65em;
-    background-position: bottom;
-    width: 1em;
-    height: 1em;
-}
-
-
- .card-face{
-     background: $red url( "../images/colibri.svg" ) no-repeat center;
-     background-size: 30%;
-     background-color: $red;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     h2 {
-         font-size: 0;
-     }
- }
- .card-back{
-    font-size: 16px;
-    padding-top: 5em;
-    padding-left: 38%;
-
-    background-color: #FFFFFF;
-    font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
-    font-weight: 100;
-
-    color: $red;
-
-    line-height: 1.375;
-    letter-spacing: 0.5px;
-
-    h2 {
-        padding: 0 0.25em;
+    a.flip::before {
+        content: "";
         display: inline-block;
-        font-size: 1em;
-        margin-bottom: 0;
-        font-weight: 100;
-        background-color: $red;
-        color: #FFFFFF;
-        letter-spacing: 1px;
+        background-image: url( "../images/flip-icon.svg" );
+        background-repeat: no-repeat;
+        background-size: 0.65em;
+        background-position: bottom;
+        width: 1em;
+        height: 1em;
     }
 
-     &>span, &>a {
-         display: block;
-         text-decoration: none;
-         color: inherit;
-     }
-     .titre, .myName {
-         font-weight: 500;
-     }
- }
+    .card-container section {
+        &.card-back{
+            display: block;
+            font-size: 16px;
+            padding-top: 5em;
+            padding-left: 38%;
+        }
+    }
 
- // --- Flippin' --- //
+    // --- Flippin' --- //
 
-.flip-container {
-    perspective: 1000px;
-}
+    .flip-container {
+        perspective: 1000px;
+    }
 
-.flip-container.hover .card-container {
-     transform: translateX(-100%) rotateY(-180deg);
- }
+    .flip-container.hover .card-container {
+        transform: translateX(-100%) rotateY(-180deg);
+    }
 
- .flip-container, .card-face, .card-back{
-     width: 425px;
-     height: 275px;
- }
+    .flip-container, .card-face, .card-back{
+        width: 425px;
+        height: 275px;
+    }
 
-// - Flip speed - ///
+    // - Flip speed - ///
 
- .card-container {
-     transition: 1.2s ease-out;
-     transform-style: preserve-3d;
+    .card-container {
+        transition: 1.2s ease-out;
+        transform-style: preserve-3d;
 
-     position: relative;
- }
+        position: relative;
+    }
 
- // - hiddin' the back - //
-.card-face, .card-back {
-    backface-visibility: hidden;
+    // - hiddin' the back - //
+    .card-face, .card-back {
+        backface-visibility: hidden;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
-// - card-face above the back - //
-.card-face {
-    z-index: 2;
-    transform: rotateY(0deg);
-}
+    // - card-face above the back - //
+    .card-face {
+        z-index: 2;
+        transform: rotateY(0deg);
+    }
 
-// - card-back, initially behind & hidden - //
-.card-back {
-    transform: translateX(-100%) rotateY(180deg);
+    // - card-back, initially behind & hidden - //
+    .card-back {
+        transform: translateX(-100%) rotateY(180deg);
+    }
 }
