@@ -154,9 +154,9 @@ $red: #bb252f;
             transition: 0.2s ease-in-out;
         }
         a:hover{
-              color: gray;
+              color: $red;
               svg{
-                  fill: gray;
+                  fill: $red;
                   transform: rotate(180deg);
               }
         }
